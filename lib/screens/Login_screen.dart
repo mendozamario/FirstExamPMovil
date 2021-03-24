@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 passwordController.text.isNotEmpty){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen())  
+                    MaterialPageRoute(builder: (context) => HomeScreen(username: usernameController.text,))  
                   );
               }else{
                 showDialog(

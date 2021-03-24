@@ -7,10 +7,20 @@ import 'package:intl/intl.dart';
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
+
+  final String username;
+  HomeScreen({this.username});
 }
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  @override
+  void initState() { 
+    String _username = widget.username;
+    
+    
+    super.initState();
+  }
 
   List<User> _users = [
     User(urlPicture: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', name: 'Mario', lastName: 'Mendoza', ocupation: 'Boss', birthDate: DateTime(2002, 02, 11)),
@@ -25,9 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            'User list'
-          ),
+                  'add user -- .: ' + widget.username + ' :.'
+                ),
       ),
+
       body: ListView.builder(
         itemCount: _users.length,
         itemBuilder: (context, index){
